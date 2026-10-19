@@ -18,3 +18,21 @@ CSS: Parte visual
 JS: Funcionalidad 
 -- Que cuando presiones el boton haga algo
 
+
+#Registro de rutas
+
+---index
+"index.html">Inicio
+"paginas/tarifas.html">Tarifas y Rutas
+"paginas/reservas.html">Reservas
+
+--- tarifas
+tarifas.html">Tarifas y Rutas" > inicia en pagina de tarifas
+../index.html" < se devuelve a la pagina inicial
+reservas.html"> avanza hacia reservas
+
+
+--- reservas
+ reservas.html">inicia en pagina de reservas
+ ../index.html" < se devuelve a pagina inicial
+ tarifas.html" < se devuelve a tarifas
