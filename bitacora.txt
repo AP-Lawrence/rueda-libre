@@ -1,0 +1,20 @@
+la URL completa:http://127.0.0.1:5500/index.html
+el protocolo:http://
+el host: 127.0.0.1
+el puerto: 5500
+la ruta: index.html
+el código de estado: 404
+el método de la petición: GET
+
+# Codigo de página no encontrada 
+
+---- ROLES
+HMTL: Conexión con la web y encargado de la estructura de la página
+-- Secccionar encabezados
+
+CSS: Parte visual 
+-- Colores a un boton
+
+JS: Funcionalidad 
+-- Que cuando presiones el boton haga algo
+
