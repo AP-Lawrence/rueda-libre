@@ -36,3 +36,23 @@ reservas.html"> avanza hacia reservas
  reservas.html">inicia en pagina de reservas
  ../index.html" < se devuelve a pagina inicial
  tarifas.html" < se devuelve a tarifas
+
+
+#Estructura semantica del codigo
+
+---index 
+cabecera: titulo y nav
+main: bienvenida, quienes somos, servicios, como aquilar, encuentranos, (aside)
+footer: correo
+
+--- tarifas
+cabecera: titulo y nav
+main: info principal y tablas, informacion importante(aside)
+footer: correo
+
+--- reservas
+cabecera: titulo y nav
+main: horarios
+footer: correo
+
+
