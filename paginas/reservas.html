@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,20 +48,34 @@
 
         <form action="#" method="post">
           <fieldset>
-            <legend>Tus datos</legend>
 
+            <!-- Sección de datos del usuario -->
+            <legend>Tus datos</legend>
             <p>
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required />
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required minlength="3"/>
+            </p>
+            <p>
+              <label for="documento">Documento:</label>
+              <input type="number" id="documento" name="documento" required minlength="6" maxlength="10" min="100000" max="9999999999"/>
             </p>
             <p>
               <label for="email">Email:</label>
               <input type="email" id="email" name="email" required />
             </p>
+            <p>
+              <label for="celular">Celular:</label>
+              <input type="tel" id="celular" name="celular" required maxlength="10" pattern="^3[0-9]*$" title="El número de teléfono debe comenzar con 3"/>
+            </p>
           </fieldset>
 
+          <!-- Sección de alquiler -->
           <fieldset>
             <legend>Tu alquiler</legend>
+            <p>
+              <label for="fecha-alquiler">Fecha de alquiler:</label>
+              <input type="date" id="fecha-alquiler" name="fecha-alquiler" required min="2026-10-01" max="2026-12-31"/>
+            </p>
             <p>
               <label for="bicicleta">Tipo de bicicleta:</label>
               <select id="bicicleta" name="bicicleta" required>
@@ -80,19 +94,32 @@
                 <option value="1dia">Día completo</option>
               </select>
             </p>
+            <p>
+              <label for="fecha-alquiler">cantidad de bicicletas:</label>
+              <input type="number" id="fecha-alquiler" name="fecha-alquiler" required min="1" max="6"/>
+            </p>
           </fieldset>
 
+          <!-- Sección de confirmación -->
           <fieldset>
             <legend>Confirmación</legend>
             <p>
-              <label for="confirmacion">¿Confirma los datos?</label>
-              <input type="checkbox" id="confirmacion" name="confirmacion" />
+              <label for="confirmacion-datos">¿Confirma los datos?</label>
+              <input type="checkbox" id="confirmacion-datos" name="confirmacion-datos" />
+            </p>
+            <p>
+              <label for="confirmacion-terminos">¿Acepta los términos y condiciones?</label>
+              <input type="checkbox" id="confirmacion-terminos" name="confirmacion-terminos" />
+            </p>
+            <p>
+              <label for="comentarios">Comentarios:</label>
+              <input type="text" id="comentarios" name="comentarios" maxlength="300"/>
             </p>
           <fieldset>
           <button type="submit">Reservar</button>
         </form>
       </section>
-      
+
     </main>
 
     <!-- FOOTER -->

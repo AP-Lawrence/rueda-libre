@@ -60,3 +60,4 @@ footer: correo
 -Tus datos: type text en nombre para que el usuario esté libre de copiar y email en el siguiente para que se valide que el datos ingresado es de tipo email
 -Tu alquiler: type select para presentarle al usuario las opciones disponibles y solo sea seleccionar
 -Confirmacion: typ checkbox para marcar si confirma o no los datos de alquiler
+
