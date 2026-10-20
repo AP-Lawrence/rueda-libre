@@ -22,7 +22,6 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main>
-
       <!-- Sección de contacto -->
       <!-- <section>
         <h2>Contacto</h2>
@@ -32,7 +31,7 @@
       </section> -->
 
       <!-- Sección de horarios -->
-      <section>
+      <section id="horarios">
         <h2>Horarios</h2>
         <dl>
           <dt>Lunes a Viernes:</dt>
@@ -41,6 +40,57 @@
           <dt>Sábados, Domingos y Festivos:</dt>
           <dd>6:00 am a 2:00 pm</dd>
         </dl>
+      </section>
+
+      <!-- Sección de formulario de reserva -->
+      <section id="formulario-reserva">
+        <h2>Formulario de reserva</h2>
+
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Tus datos</legend>
+
+            <p>
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </p>
+            <p>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tu alquiler</legend>
+            <p>
+              <label for="bicicleta">Tipo de bicicleta:</label>
+              <select id="bicicleta" name="bicicleta" required>
+                <option value="">Selecciona un tipo</option>
+                <option value="urbana">Urbana</option>
+                <option value="montaña">Montaña</option>
+                <option value="eléctrica">Eléctrica</option>
+              </select>
+            </p>
+            <p>
+              <label for="duracion">Duración del alquiler:</label>
+              <select id="duracion" name="duracion" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1hora">1 hora</option>
+                <option value="4horas">Media día (4h)</option>
+                <option value="1dia">Día completo</option>
+              </select>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Confirmación</legend>
+            <p>
+              <label for="confirmacion">¿Confirma los datos?</label>
+              <input type="checkbox" id="confirmacion" name="confirmacion" />
+            </p>
+          <fieldset>
+          <button type="submit">Reservar</button>
+        </form>
       </section>
       
     </main>
