@@ -92,3 +92,26 @@ footer: correo
 | 9 | confcion datos | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
 | 10 | Aeptar terms  | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
 ----------------------------------------------------------------------------------------------
+
+
+# Combinaciones de colores y contraste WCAG
+
+--------------------------------------------------------------------------------------------
+| Combinación                          | Contraste | Texto normal (AA) | Texto grande (AA) |
+---------------------------------------|-----------|-------------------|--------------------
+| Blanco sobre Verde Ruta              | 5.31:1    | Sí                | Sí                |
+| Blanco sobre Naranja Pedal           | 2.21:1    | No                | No                |
+| Azul Noche sobre Naranja Pedal       | 7.01:1    | Sí                | Sí                |
+| Azul Noche sobre Crema               | 14.44:1   | Sí                | Sí                |
+| Gris Asfalto sobre Crema             | 5.56:1    | Sí                | No                |
+| Verde Ruta sobre Crema               | 4.93:1    | Sí                | No                |
+| Naranja Pedal sobre Crema            | 2.05:1    | No                | No                |
+| Blanco sobre Azul Noche              | 15.97:1   | Sí                | No                |
+--------------------------------------------------------------------------------------------
+
+---Criterios WCAG 2.2 (nivel AA)
+Texto normal: mínimo 4.5:1
+Texto grande: mínimo 3:1
+
+# Mapa de uso de color
+
