@@ -59,5 +59,36 @@ footer: correo
 
 -Tus datos: type text en nombre para que el usuario esté libre de copiar y email en el siguiente para que se valide que el datos ingresado es de tipo email
 -Tu alquiler: type select para presentarle al usuario las opciones disponibles y solo sea seleccionar
--Confirmacion: typ checkbox para marcar si confirma o no los datos de alquiler
+-Confirmacion: type checkbox para marcar si confirma o no los datos de alquiler
 
+#Tabla de pruebas
+
+----------------------------------------------------------------------------------------------
+|   | Campo          | Dato de prueba     | Resultado esperado          | Resultado obtenido |
+----------------------------------------------------------------------------------------------
+| 1 | Nombre         | 12345              | Rechazar números            | Rechaza números    |
+| 2 | Documento      | -124325            | Rechazar valores negativos  | Rechaza negativos  |
+| 3 | Email          | asdads@            | Rechazar formato invalido   | Pide correo + extec|
+| 4 | Celular        | abcde              | Rechazar letras             | Rechaza los strings|
+| 5 | Fecha alquiler | 9/1/2026           | Rechazar fecha inválida     | Pide cambiar fecha |
+| 6 | Tipo de bici   | default            | Rechazar por no seleccionar | Pide seleccionar   |
+| 7 | Duración alqr  | default            | Rechazar por no seleccionar | Pide seleccionar   | 
+| 8 | Cantidad bicis | -10                | Rechazar valores negativos  | Rechaza negativos  |
+| 9 | confcion datos | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
+| 10 | Aeptar terms  | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+|   | Campo          | Dato de prueba     | Resultado esperado          | Resultado obtenido |
+----------------------------------------------------------------------------------------------
+| 1 | Nombre         | Ju                 | Rechazar por -3 caracteres  | Pide nombre +3 char|
+| 2 | Documento      | hasd               | Rechazar strings            | Pide numeros       |
+| 3 | Email          | 1233               | Rechazar números            | Rechaza números    |
+| 4 | Celular        | 123412             | Rechazar, primer debe ser 3 | Solicita 1er char=3|
+| 5 | Fecha alquiler | 9/asd/2026         | Rechaza entrada de strings  | Pide cambiar fecha |
+| 6 | Tipo de bici   | default            | Rechazar por no seleccionar | Pide seleccionar   |
+| 7 | Duración alqr  | default            | Rechazar por no seleccionar | Pide seleccionar   | 
+| 8 | Cantidad bicis | asdads             | Rechazar entrada de strings | Pide solo numbers  |
+| 9 | confcion datos | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
+| 10 | Aeptar terms  | Sin marcar         | Avisar de campo obligatorio | Aviso de required  |
+----------------------------------------------------------------------------------------------

@@ -46,22 +46,22 @@
       <section id="formulario-reserva">
         <h2>Formulario de reserva</h2>
 
-        <form action="#" method="post">
+        <form action="#" method="post" autocomplete="off">
           <fieldset>
 
             <!-- Sección de datos del usuario -->
             <legend>Tus datos</legend>
             <p>
               <label for="nombre">Nombre completo:</label>
-              <input type="text" id="nombre" name="nombre" required minlength="3"/>
+              <input type="text" id="nombre" name="nombre" required minlength="3" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras"/>
             </p>
             <p>
               <label for="documento">Documento:</label>
-              <input type="number" id="documento" name="documento" required minlength="6" maxlength="10" min="100000" max="9999999999"/>
+              <input type="number" id="documento" name="documento" required minlength="6" maxlength="10" min="1" max="9999999999"/>
             </p>
             <p>
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="tucorreo@example.com"/>
             </p>
             <p>
               <label for="celular">Celular:</label>
@@ -105,11 +105,11 @@
             <legend>Confirmación</legend>
             <p>
               <label for="confirmacion-datos">¿Confirma los datos?</label>
-              <input type="checkbox" id="confirmacion-datos" name="confirmacion-datos" />
+              <input type="checkbox" id="confirmacion-datos" name="confirmacion-datos" required/>
             </p>
             <p>
               <label for="confirmacion-terminos">¿Acepta los términos y condiciones?</label>
-              <input type="checkbox" id="confirmacion-terminos" name="confirmacion-terminos" />
+              <input type="checkbox" id="confirmacion-terminos" name="confirmacion-terminos" required/>
             </p>
             <p>
               <label for="comentarios">Comentarios:</label>
