@@ -114,4 +114,14 @@ Texto normal: mínimo 4.5:1
 Texto grande: mínimo 3:1
 
 # Mapa de uso de color
+---
 
+# Link pagina
+https://ap-lawrence.github.io/rueda-libre/index.html
+
+
+#CSS
+---Herencia:
+-h1, h2 y h3 reciben el mismo estilo de titulo
+-Body: todo lo que esté en body recibe herencia de estilos aplicado 
+-table: reciben el alineado 

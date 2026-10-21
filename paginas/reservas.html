@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+
     <title>Reserva tu bicicleta</title>
   </head>
   <body>
@@ -40,24 +51,56 @@
 
         <form action="#" method="post" autocomplete="off">
           <fieldset>
-
             <!-- Sección de datos del usuario -->
             <legend>Tus datos</legend>
             <p>
               <label for="nombre">Nombre completo:</label>
-              <input type="text" id="nombre" name="nombre" required minlength="3" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras"/>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                minlength="3"
+                pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                title="Solo se permiten letras"
+              />
             </p>
             <p>
               <label for="documento">Documento:</label>
-              <input type="number" id="documento" name="documento" required minlength="6" maxlength="10" min="1" max="9999999999"/>
+              <input
+                type="text"
+                id="documento"
+                name="documento"
+                required
+                minlength="6"
+                maxlength="10"
+                pattern="[0-9]+"
+                title="El documento debe contener entre 6 y 10 dígitos."
+              />
             </p>
             <p>
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="tucorreo@example.com"/>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                placeholder="tucorreo@example.com"
+                title="Ingresa un correo válido, por ejemplo usuario@gmail.com"
+              />
             </p>
             <p>
               <label for="celular">Celular:</label>
-              <input type="tel" id="celular" name="celular" required maxlength="10" pattern="^3[0-9]*$" title="El número de teléfono debe comenzar con 3"/>
+              <input
+                type="tel"
+                id="celular"
+                name="celular"
+                required
+                maxlength="10"
+                pattern="^3[0-9]*$"
+                title="El número de teléfono debe comenzar con 3"
+              />
             </p>
           </fieldset>
 
@@ -66,12 +109,19 @@
             <legend>Tu alquiler</legend>
             <p>
               <label for="fecha-alquiler">Fecha de alquiler:</label>
-              <input type="date" id="fecha-alquiler" name="fecha-alquiler" required min="2026-10-01" max="2026-12-31"/>
+              <input
+                type="date"
+                id="fecha-alquiler"
+                name="fecha-alquiler"
+                required
+                min="2026-10-01"
+                max="2026-12-31"
+              />
             </p>
             <p>
               <label for="bicicleta">Tipo de bicicleta:</label>
               <select id="bicicleta" name="bicicleta" required>
-                <option value=""  disabled selected>Selecciona un tipo</option>
+                <option value="" disabled selected>Selecciona un tipo</option>
                 <option value="urbana">Urbana</option>
                 <option value="montaña">Montaña</option>
                 <option value="eléctrica">Eléctrica</option>
@@ -80,7 +130,9 @@
             <p>
               <label for="duracion">Duración del alquiler:</label>
               <select id="duracion" name="duracion" required>
-                <option value=""  disabled selected>Selecciona una opción</option>
+                <option value="" disabled selected>
+                  Selecciona una opción
+                </option>
                 <option value="1hora">1 hora</option>
                 <option value="4horas">Media día (4h)</option>
                 <option value="1dia">Día completo</option>
@@ -89,40 +141,66 @@
             <p>
               <label for="recorrido">Recorrido guiado:</label>
               <select id="recorrido" name="recorrido" required>
-                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="" disabled selected>
+                  Selecciona una opción
+                </option>
                 <option value="1hora">Ninguna</option>
                 <option value="4horas">Río y Parques</option>
-                <option value="1dia">Sabores de barrio 	</option>
+                <option value="1dia">Sabores de barrio</option>
                 <option value="1dia">Reto las Palmas</option>
               </select>
             </p>
             <p>
               <label for="cantidad-bicicletas">cantidad de bicicletas:</label>
-              <input type="number" id="cantidad-bicicletas" name="cantidad-bicicletas" required min="1" max="6"/>
+              <input
+                type="number"
+                id="cantidad-bicicletas"
+                name="cantidad-bicicletas"
+                required
+                min="1"
+                max="6"
+              />
             </p>
-          </fieldset> 
+          </fieldset>
 
           <!-- Sección de confirmación -->
           <fieldset>
             <legend>Confirmación</legend>
             <p>
               <label for="confirmacion-datos">¿Confirma los datos?</label>
-              <input type="checkbox" id="confirmacion-datos" name="confirmacion-datos" required/>
+              <input
+                type="checkbox"
+                id="confirmacion-datos"
+                name="confirmacion-datos"
+                required
+              />
             </p>
             <p>
-              <label for="confirmacion-terminos">¿Acepta los términos y condiciones?</label>
-              <input type="checkbox" id="confirmacion-terminos" name="confirmacion-terminos" required/>
+              <label for="confirmacion-terminos"
+                >¿Acepta los términos y condiciones?</label
+              >
+              <input
+                type="checkbox"
+                id="confirmacion-terminos"
+                name="confirmacion-terminos"
+                required
+              />
             </p>
             <p>
               <label for="comentarios">Comentarios:</label>
-              <input type="text" id="comentarios" name="comentarios" maxlength="300" placeholder="Escribe tus comentarios aquí..."/>
+              <input
+                type="text"
+                id="comentarios"
+                name="comentarios"
+                maxlength="300"
+                placeholder="Escribe tus comentarios aquí..."
+              />
             </p>
           </fieldset>
-            
+
           <button type="submit">Reservar</button>
         </form>
       </section>
-
     </main>
 
     <!-- FOOTER -->
