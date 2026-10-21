@@ -125,3 +125,4 @@ https://ap-lawrence.github.io/rueda-libre/index.html
 -h1, h2 y h3 reciben el mismo estilo de titulo
 -Body: todo lo que esté en body recibe herencia de estilos aplicado 
 -table: reciben el alineado 
+
