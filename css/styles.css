@@ -170,3 +170,42 @@ form .btn-cta {
     display: inline-block;
     margin-right: var(--espaciado-m);
 }
+
+.tarjeta-servicio {
+    position: relative;
+}
+
+.badge-nuevo {
+    position: absolute;
+    top: var(--espaciado-s);
+    right: var(--espaciado-s);
+    background-color: var(--color-naranja-pedal);
+    color: var(--color-azul-noche);
+    padding: 0.2rem var(--espaciado-s);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.whatsapp-flotante {
+    position: fixed;
+    bottom: var(--espaciado-m);
+    right: var(--espaciado-m);
+    background-color: #25D366;
+    color: #ffffff;
+    padding: var(--espaciado-s) var(--espaciado-l);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+}
+
+.whatsapp-flotante:hover,
+.whatsapp-flotante:focus {
+    background-color: #1ebe5d;
+    outline: 2px solid var(--color-azul-noche);
+    outline-offset: 2px;
+}

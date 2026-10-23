@@ -140,3 +140,23 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
 ---Box-sizing:
 -Antes con content-box: la tarjeta media 334px de ancho porque a los 300px le sumaba por fuera el padding y el borde
 -Despues con border-box: la tarjeta quedo en 300px de ancho porque mete el padding y el borde dentro de la misma caja para que no se salga
+
+# Cierre v1.0 - Resumen de la semana
+
+- Se armaron las tres paginas principales (inicio, tarifas y reservas) conectando bien los enlaces y usando etiquetas semanticas.
+
+- Se probaron los campos con varios datos de prueba en la tabla para asegurar que los patrones y tipos (email, tel, required) frenaran errores antes de enviar.
+
+- Se soluciono el problema de la clase .activo combinando selectores (#menu a.activo) para subirle el peso sin usar !important.
+
+- Se revisaron los contrastes de colores segun WCAG y se agregaron estados :hover y :focus visibles con Tab.
+
+- Se aplico border-box general para controlar los tamaños, se limito el ancho del main con rem y se ordenaron las tablas y formularios.
+
+- Se midio en DevTools el cambio de la tarjeta con content-box vs border-box.
+
+- Se agrego la etiqueta "Nuevo" en la tarjeta de bicis electricas de forma absoluta sin mover el contenido.
+
+- Se puso el boton flotante de WhatsApp visible en las tres paginas.
+
+- Se limpio y agrupo todo el CSS en secciones.
