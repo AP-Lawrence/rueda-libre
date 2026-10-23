@@ -91,7 +91,10 @@ main {
 
 /* Estilos del encabezado */
 #inicio {
-    min-height: 80vh; 
+    padding: var(--espaciado-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #servicios article {
