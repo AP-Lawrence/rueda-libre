@@ -126,3 +126,17 @@ https://ap-lawrence.github.io/rueda-libre/index.html
 -Body: todo lo que esté en body recibe herencia de estilos aplicado 
 -table: reciben el alineado 
 
+# Conflicto CSS (Clase .activo)
+
+--- El problema
+El navegador no aplica el color verde por el peso (especificidad) de los selectores:
+- "#menu a": pesa más porque tiene 1 ID y 1 etiqueta -- gana.
+- ".activo": pesa menos porque solo tiene 1 clase -- pierde.
+
+--- La solución
+En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
+- "#menu a.activo": suma 1 ID, 1 etiqueta y 1 clase -- le gana al anterior y aplica el color.
+
+---Box-sizing:
+-Antes con content-box: la tarjeta media 334px de ancho porque a los 300px le sumaba por fuera el padding y el borde
+-Despues con border-box: la tarjeta quedo en 300px de ancho porque mete el padding y el borde dentro de la misma caja para que no se salga

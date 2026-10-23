@@ -1,3 +1,8 @@
+/* Todo el ancho de los elemtnos incluye el padding y el border */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 :root {
     --color-verde-ruta: #1e7a4f;
     --color-naranja-pedal: #F39A2B;
@@ -18,6 +23,7 @@ body {
     font-family: var(--font-textos);
     background-color: var(--color-crema);
     color: var(--color-azul-noche);
+    margin: 0;
 }
 
 /*  Uso de herencia en los titulos */
@@ -25,8 +31,9 @@ h1, h2, h3 {
     font-family: var(--font-titulos);
 }
 
-table {
-    text-align: center;
+#menu a { 
+    color: var(--color-gris-asfalto); 
+    text-decoration: none;
 }
 
 #menu a.activo { 
@@ -38,22 +45,23 @@ table {
 #menu a:focus {
     color: var(--color-azul-noche);
     text-decoration: underline;
-    outline: 2px dashed var(--color-azul-noche);
+    outline: 2px dashed var(--color-azul-noche); 
     outline-offset: 4px;
 }
 
 .btn-cta {
     background-color: var(--color-verde-ruta);
     color: var(--color-crema);
-    padding: var(--espaciado-s) var(--espaciado-m);
+    padding: var(--espaciado-m) var(--espaciado-l);
     text-decoration: none;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--espaciado-s);
     font-weight: 600;
     cursor: pointer;
     display: inline-block;
     font-family: var(--font-textos);
     font-size: 1rem;
+    text-align: center;
 }
 
 .btn-cta:hover,
@@ -70,4 +78,95 @@ textarea:focus {
     outline: 3px solid var(--color-verde-ruta);
     outline-offset: 1px;
     border-color: var(--color-verde-ruta);
+}
+
+/* ---- --------------------------------------*/
+
+/* Centrar el contenido principal */
+main {
+    max-width: 60rem; 
+    margin: 0 auto;   
+    padding: var(--espaciado-m);
+}
+
+/* Estilos del encabezado */
+#inicio {
+    min-height: 80vh; 
+}
+
+#servicios article {
+    padding: var(--espaciado-m);
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--espaciado-s);
+    margin-bottom: var(--espaciado-l);
+}
+
+#servicios article img {
+    width: 100%;
+    border-radius: var(--espaciado-s);
+}
+
+table {
+    text-align: center; /* Conservado de la base original */
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: var(--espaciado-l);
+}
+
+th, td {
+    padding: var(--espaciado-m);
+    border: 1px solid var(--color-gris-asfalto);
+}
+
+th {
+    background-color: var(--color-verde-ruta);
+    color: var(--color-crema);
+}
+
+form p {
+    margin-bottom: var(--espaciado-m);
+}
+
+label {
+    display: block; 
+    margin-bottom: var(--espaciado-s);
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--espaciado-m);
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--espaciado-s);
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+}
+
+label[for="confirmacion-datos"],
+label[for="confirmacion-terminos"] {
+    display: inline;
+    font-weight: 400;
+}
+
+form .btn-cta {
+    width: 100%;
+    padding: var(--espaciado-l);
+}
+
+#menu {
+    padding-left: 0;
+}
+
+#menu li {
+    display: inline-block;
+    margin-right: var(--espaciado-m);
 }
