@@ -167,12 +167,14 @@ form .btn-cta {
 
 #menu {
     padding-left: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;             /* Contenedor flexible */
+    gap: var(--espaciado-m);   /* Separación uniforme */
+    flex-wrap: wrap;           /* Pasan a otra línea si no caben */
 }
 
-#menu li {
-    display: inline-block;
-    margin-right: var(--espaciado-m);
-}
+/* Se eliminó el display: inline-block y margin-right de #menu li */
 
 .tarjeta-servicio {
     position: relative;
@@ -211,4 +213,28 @@ form .btn-cta {
     background-color: #1ebe5d;
     outline: 2px solid var(--color-azul-noche);
     outline-offset: 2px;
+}
+
+/* Nombre del negocio en un extremo y menú en el otro, centrados verticalmente */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaciado-m);
+    padding: var(--espaciado-m);
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+/* Pie en tres bloques en fila, alineados por arriba y separados uniformemente */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--espaciado-l);
+    padding: var(--espaciado-l) var(--espaciado-m);
+    max-width: 60rem;
+    margin: 0 auto;
 }
