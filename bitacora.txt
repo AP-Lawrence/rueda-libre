@@ -160,3 +160,20 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
 - Se puso el boton flotante de WhatsApp visible en las tres paginas.
 
 - Se limpio y agrupo todo el CSS en secciones.
+
+# Semana 2 - Rueda Libre v1.5 (Responsive)
+
+---Flexbox en encabezado, menu y pie:
+- Se cambio el menu de inline-block a display: flex con gap para separar los enlaces parejo y flex-wrap: wrap para que bajen de linea si no caben.
+- Al achicar la ventana del navegador poco a poco:
+  * En pantallas grandes el titulo y el menu se ven en extremos opuestos en la misma fila, igual que los 3 bloques del footer (marca, contacto y horario).
+  * Cuando la pantalla se vuelve mas angosta y ya no caben en la misma linea, el menu y los enlaces saltan hacia abajo acomodandose solos sin encimarse, y los bloques del footer tambien van bajando uno debajo del otro.
+
+---Cuadricula de flota con Grid y Flexbox:
+- Se armo la seccion #flota con display: grid usando repeat(auto-fit, minmax(16rem, 1fr)) para que las columnas se acomoden solas sin media queries.
+- Adentro de cada tarjeta se uso display: flex en columna (flex-direction: column y justify-content: space-between) para que el boton de Reservar quede siempre alineado abajo sin importar si el texto es corto o largo.
+- Al agregar el septimo modelo (Tandem) la cuadricula lo acomodo sola en la siguiente fila sin tocar el CSS.
+- Columnas vistas en DevTools (modo dispositivo):
+  * A 1280 px: se ven 3 columnas.
+  * A 900 px: se ven 3 columnas (o 2 columnas si el espacio se reduce por los margenes).
+  * A 500 px: se ve 1 sola columna (las tarjetas ocupan todo el ancho una debajo de otra).

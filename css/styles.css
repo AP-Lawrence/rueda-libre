@@ -238,3 +238,30 @@ footer {
     max-width: 60rem;
     margin: 0 auto;
 }
+
+/* Cuadrícula adaptable sin media queries y separación uniforme */
+.cuadricula-flota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--espaciado-l);
+}
+
+/* Tarjeta con el box-model anterior y Flexbox en columna para que el botón "Reservar" quede siempre al final */
+#flota article {
+    padding: var(--espaciado-m);
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--espaciado-s);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#flota article img {
+    width: 100%;
+    border-radius: var(--espaciado-s);
+}
+
+/* Empuja el botón hacia abajo del todo aunque las descripciones tengan distinto largo */
+#flota article .btn-cta {
+    margin-top: auto;
+}
