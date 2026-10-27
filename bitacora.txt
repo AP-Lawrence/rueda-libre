@@ -163,6 +163,8 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
 
 # Semana 2 - Rueda Libre v1.5 (Responsive)
 
+## D1
+
 ---Flexbox en encabezado, menu y pie:
 - Se cambio el menu de inline-block a display: flex con gap para separar los enlaces parejo y flex-wrap: wrap para que bajen de linea si no caben.
 - Al achicar la ventana del navegador poco a poco:
@@ -177,3 +179,10 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
   * A 1280 px: se ven 3 columnas.
   * A 900 px: se ven 3 columnas (o 2 columnas si el espacio se reduce por los margenes).
   * A 500 px: se ve 1 sola columna (las tarjetas ocupan todo el ancho una debajo de otra).
+
+---Decisiones de Layout (Flexbox vs Grid):
+- Encabezado y pie: se uso Flexbox porque solo necesitabamos acomodar los bloques en una sola direccion (una fila horizontal) repartiendo el espacio entre extremos con justify-content: space-between.
+- Portada de inicio: se uso Grid (grid-template-columns: repeat(2, 1fr)) para dividir el espacio en dos columnas exactas (texto a la izquierda y foto a la derecha) y align-items: center para centrar el texto verticalmente.
+- Galeria de rutas: se uso Grid con repeat(3, 1fr) para asegurar una estructura fija de 3 tarjetas del mismo ancho en la fila.
+- Pagina de reservas: se uso Grid con 2fr 1fr porque permite definir la proporcion exacta 2:1 (dos tercios para el formulario a la izquierda y un tercio para horarios y contacto a la derecha).
+- Fila del formulario (documento y celular): se uso Flexbox con gap porque son solo dos campos cortos en una sola fila (1 dimension) que se reparten el ancho disponible con flex: 1.
