@@ -33,7 +33,7 @@
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main>
+    <main class="layout-reservas">
       <!-- Sección de horarios -->
       <section id="horarios">
         <h2>Horarios</h2>
@@ -66,19 +66,35 @@
                 title="Solo se permiten letras"
               />
             </p>
-            <p>
-              <label for="documento">Documento:</label>
-              <input
-                type="text"
-                id="documento"
-                name="documento"
-                required
-                minlength="6"
-                maxlength="10"
-                pattern="[0-9]+"
-                title="El documento debe contener entre 6 y 10 dígitos."
-              />
-            </p>
+
+            <div class="fila-campos">
+              <p>
+                <label for="documento">Documento:</label>
+                <input
+                  type="text"
+                  id="documento"
+                  name="documento"
+                  required
+                  minlength="6"
+                  maxlength="10"
+                  pattern="[0-9]+"
+                  title="El documento debe contener entre 6 y 10 dígitos."
+                />
+              </p>
+              <p>
+                <label for="celular">Celular:</label>
+                <input
+                  type="tel"
+                  id="celular"
+                  name="celular"
+                  required
+                  maxlength="10"
+                  pattern="^3[0-9]*$"
+                  title="El número de teléfono debe comenzar con 3"
+                />
+              </p>
+            </div>
+
             <p>
               <label for="email">Email:</label>
               <input
@@ -91,18 +107,7 @@
                 title="Ingresa un correo válido, por ejemplo usuario@gmail.com"
               />
             </p>
-            <p>
-              <label for="celular">Celular:</label>
-              <input
-                type="tel"
-                id="celular"
-                name="celular"
-                required
-                maxlength="10"
-                pattern="^3[0-9]*$"
-                title="El número de teléfono debe comenzar con 3"
-              />
-            </p>
+
           </fieldset>
 
           <!-- Sección de alquiler -->
@@ -201,6 +206,19 @@
 
           <button type="submit" class="btn-cta">Reservar</button>
         </form>
+      </section>
+
+      <section id="horarios">
+        <h2>Información y Horarios</h2>
+        <dl>
+          <dt>Lunes a Viernes:</dt>
+          <dd>7:00 am a 7:00 pm</dd>
+
+          <dt>Sábados, Domingos y Festivos:</dt>
+          <dd>6:00 am a 2:00 pm</dd>
+        </dl>
+        <p><strong>Contacto:</strong> hola@ruedalibre.example</p>
+        <p><strong>Ubicación:</strong> Medellín, Antioquia</p>
       </section>
     </main>
 
