@@ -169,11 +169,13 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
 - Se cambio el menu de inline-block a display: flex con gap para separar los enlaces parejo y flex-wrap: wrap para que bajen de linea si no caben.
 - Al achicar la ventana del navegador poco a poco:
   * En pantallas grandes el titulo y el menu se ven en extremos opuestos en la misma fila, igual que los 3 bloques del footer (marca, contacto y horario).
-  * Cuando la pantalla se vuelve mas angosta y ya no caben en la misma linea, el menu y los enlaces saltan hacia abajo acomodandose solos sin encimarse, y los bloques del footer tambien van bajando uno debajo del otro.
+  * Cuando la pantalla se vuelve mas angosta y ya no caben en la misma linea, el menu y los enlaces saltan hacia abajo acomodandose solos sin encimarse, 
+    y los bloques del footer tambien van bajando uno debajo del otro.
 
 ---Cuadricula de flota con Grid y Flexbox:
 - Se armo la seccion #flota con display: grid usando repeat(auto-fit, minmax(16rem, 1fr)) para que las columnas se acomoden solas sin media queries.
-- Adentro de cada tarjeta se uso display: flex en columna (flex-direction: column y justify-content: space-between) para que el boton de Reservar quede siempre alineado abajo sin importar si el texto es corto o largo.
+- Adentro de cada tarjeta se uso display: flex en columna (flex-direction: column y justify-content: space-between) para que el boton de Reservar 
+  quede siempre alineado abajo sin importar si el texto es corto o largo.
 - Al agregar el septimo modelo (Tandem) la cuadricula lo acomodo sola en la siguiente fila sin tocar el CSS.
 - Columnas vistas en DevTools (modo dispositivo):
   * A 1280 px: se ven 3 columnas.
@@ -181,8 +183,25 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
   * A 500 px: se ve 1 sola columna (las tarjetas ocupan todo el ancho una debajo de otra).
 
 ---Decisiones de Layout (Flexbox vs Grid):
-- Encabezado y pie: se uso Flexbox porque solo necesitabamos acomodar los bloques en una sola direccion (una fila horizontal) repartiendo el espacio entre extremos con justify-content: space-between.
-- Portada de inicio: se uso Grid (grid-template-columns: repeat(2, 1fr)) para dividir el espacio en dos columnas exactas (texto a la izquierda y foto a la derecha) y align-items: center para centrar el texto verticalmente.
+- Encabezado y pie: se uso Flexbox porque solo necesitabamos acomodar los bloques en una sola direccion (una fila horizontal) repartiendo el espacio 
+  entre extremos con justify-content: space-between.
+- Portada de inicio: se uso Grid (grid-template-columns: repeat(2, 1fr)) para dividir el espacio en dos columnas exactas (texto a la izquierda y 
+  foto a la derecha) y align-items: center para centrar el texto verticalmente.
 - Galeria de rutas: se uso Grid con repeat(3, 1fr) para asegurar una estructura fija de 3 tarjetas del mismo ancho en la fila.
-- Pagina de reservas: se uso Grid con 2fr 1fr porque permite definir la proporcion exacta 2:1 (dos tercios para el formulario a la izquierda y un tercio para horarios y contacto a la derecha).
-- Fila del formulario (documento y celular): se uso Flexbox con gap porque son solo dos campos cortos en una sola fila (1 dimension) que se reparten el ancho disponible con flex: 1.
+- Pagina de reservas: se uso Grid con 2fr 1fr porque permite definir la proporcion exacta 2:1 (dos tercios para el formulario a la izquierda y 
+  un tercio para horarios y contacto a la derecha).
+- Fila del formulario (documento y celular): se uso Flexbox con gap porque son solo dos campos cortos en una sola fila (1 dimension) 
+  que se reparten el ancho disponible con flex: 1.
+
+---Rueda Libre v1.5 (Mobile-First y Media Queries):
+- Se reorganizo el CSS dejando como base (sin media queries) el diseño para celular en una sola columna y se crearon los puntos de quiebre 
+  con @media (min-width: 768px) para tablet y @media (min-width: 1200px) para escritorio.
+- Tres problemas encontrados al probar en DevTools (360px, 768px y 1280px) y como se resolvieron:
+  * Problema 1 (Tablas en celular a 360px): la tabla de recorridos tiene 5 columnas y con el padding de 1rem se salia de la pantalla generando 
+    scroll horizontal. Solucion: en el estilo base movil se bajo el font-size a 0.8rem y el padding de th y td a 0.35rem, y en 768px se vuelve a subir a 1rem.
+  * Problema 2 (Encabezado y campos del formulario apretados en 360px): el titulo chocaba con el menu y los campos de documento y celular 
+    quedaban muy angostos en fila. Solucion: en movil se pusieron en columna (flex-direction: column) con el menu centrado abajo, y a partir de 768px 
+    vuelven a ponerse en fila (flex-direction: row).
+  * Problema 3 (Portada, rutas y reservas amontonadas en pantallas chicas): tener 2 o 3 columnas fijas hacia que las fotos y el formulario 
+  se vieran aplastados en celular. Solucion: se dejo grid-template-columns: 1fr por defecto en movil, pasando a 2 columnas en tablet (768px) 
+  y completando las 3 columnas de rutas y la proporcion 2fr 1fr de reservas en escritorio (1200px).

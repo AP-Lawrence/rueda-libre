@@ -26,6 +26,13 @@ body {
     margin: 0;
 }
 
+/* Ninguna imagen del sitio será más ancha que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /*  Uso de herencia en los titulos */
 h1, h2, h3 { 
     font-family: var(--font-titulos);
@@ -89,12 +96,13 @@ main {
     padding: var(--espaciado-m);
 }
 
-/* Estilos del encabezado */
+/* Estilos del encabezado (Base Móvil: 1 sola columna) */
 #inicio {
     padding: var(--espaciado-l);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-l);
+    align-items: center;
 }
 
 #servicios article {
@@ -109,15 +117,17 @@ main {
     border-radius: var(--espaciado-s);
 }
 
+/* Tablas ajustadas en móvil (letra y relleno pequeños para evitar scroll lateral) */
 table {
     text-align: center; /* Conservado de la base original */
     width: 100%; 
     border-collapse: collapse; 
     margin-bottom: var(--espaciado-l);
+    font-size: 0.8rem;
 }
 
 th, td {
-    padding: var(--espaciado-m);
+    padding: 0.35rem;
     border: 1px solid var(--color-gris-asfalto);
 }
 
@@ -170,6 +180,7 @@ form .btn-cta {
     margin: 0;
     list-style: none;
     display: flex;             /* Contenedor flexible */
+    justify-content: center;   /* Centrado horizontal */
     gap: var(--espaciado-m);   /* Separación uniforme */
     flex-wrap: wrap;           /* Pasan a otra línea si no caben */
 }
@@ -282,7 +293,7 @@ footer {
 /* Galería "Nuestras rutas" con 3 tarjetas en una fila */
 .galeria-rutas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:  1fr;
     gap: var(--espaciado-l);
 }
 
@@ -314,4 +325,68 @@ footer {
 
 .fila-campos p {
     flex: 1;
+}
+
+/* ------- MEDIA QUERIES (TABLET 768px Y ESCRITORIO 1200px) ----------- */
+
+/* TABLET (Desde 768px en adelante) */
+@media (min-width: 768px) {
+    /*  Recupera la distribución en header y footer */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    #menu {
+        justify-content: flex-end;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Portada en 2 columnas */
+    #inicio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Galería de rutas pasa a 2 columnas en tablet */
+    .galeria-rutas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Campos cortos (documento y celular) en la misma fila */
+    .fila-campos {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Las tablas recuperan su tamaño normal en pantallas grandes */
+    table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: var(--espaciado-m);
+    }
+}
+
+/* ESCRITORIO (Desde 1200px en adelante) */
+@media (min-width: 1200px) {
+    /* Ampliamos un poco el contenedor principal para aprovechar pantallas de 1280px */
+    main, header, footer {
+        max-width: 72rem;
+    }
+
+    /* Galería de rutas completa con las 3 tarjetas en fila */
+    .galeria-rutas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* En reservas: formulario (2/3) e info de contacto (1/3) en proporción 2:1 */
+    .layout-reservas {
+        grid-template-columns: 2fr 1fr;
+    }
 }
