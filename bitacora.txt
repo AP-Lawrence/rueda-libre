@@ -207,7 +207,7 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
   y completando las 3 columnas de rutas y la proporcion 2fr 1fr de reservas en escritorio (1200px).
 
 
-  # Semana 2 - Sesion 5 (Bootstrap 5)
+# Semana 2 - Sesion 5 (Bootstrap 5)
 
 ---Prueba de la flota en Bootstrap vs CSS propio:
 - Tiempo que tomo armarlo: unos 5 minutos poniendo las clases en el HTML.
@@ -218,3 +218,13 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
 - Que control perdi: ya dependia de los tamaños de pantalla fijos que trae Bootstrap (sm, lg, xl) 
   en vez de que se acomodaran libremente con minmax(16rem, 1fr), y sin mi styles.css se perdieron 
   los colores y bordes propios de mis tarjetas.
+
+
+---Utilidades de Bootstrap
+- Se armo toda la seccion de beneficios y la franja final sin tocar CSS ni poner estilos en linea, solo haciendo uso de clases
+- Cinco clases buscadas en la documentación y para que sirven:
+  * text-bg-success / text-bg-warning: pinta el color de fondo y lo pone automaticamente más grande y menos pesado
+  * lead: hace que un parrado se destaque poniendole la letra un poco más grande
+  * d nose d-md-block: esconde un elemento en pantallas de cecular (d-none) y lo hace apartecer a partir de pantallas medianas o tablets (d-md-block)
+  * flex-colum flex-md-row: acomoda los elementos en pantallas de celular uno debajo del otro y en pantallas más grandes los pasa a horizontal
+  * px-4 y py-3: aplica padding horizontal con px y verical con py
