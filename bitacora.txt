@@ -205,3 +205,16 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
   * Problema 3 (Portada, rutas y reservas amontonadas en pantallas chicas): tener 2 o 3 columnas fijas hacia que las fotos y el formulario 
   se vieran aplastados en celular. Solucion: se dejo grid-template-columns: 1fr por defecto en movil, pasando a 2 columnas en tablet (768px) 
   y completando las 3 columnas de rutas y la proporcion 2fr 1fr de reservas en escritorio (1200px).
+
+
+  # Semana 2 - Sesion 5 (Bootstrap 5)
+
+---Prueba de la flota en Bootstrap vs CSS propio:
+- Tiempo que tomo armarlo: unos 5 minutos poniendo las clases en el HTML.
+- Cantidad de codigo: en mi CSS propio necesite unas 20 lineas entre .cuadricula-flota y #flota article, 
+  mientras que aca fueron 0 lineas de CSS y solo las clases container, row g-4 y col-12 col-sm-6 col-lg-4 col-xl-3 en cada articulo.
+- Que me dio Bootstrap sin esfuerzo: me armo las 1, 2, 3 y 4 columnas segun el tamaño de pantalla y 
+  les puso el espacio entre tarjetas (g-4) sin escribir media queries ni calcular medidas.
+- Que control perdi: ya dependia de los tamaños de pantalla fijos que trae Bootstrap (sm, lg, xl) 
+  en vez de que se acomodaran libremente con minmax(16rem, 1fr), y sin mi styles.css se perdieron 
+  los colores y bordes propios de mis tarjetas.
