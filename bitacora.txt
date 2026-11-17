@@ -228,3 +228,43 @@ En vez de forzarlo con !important, juntamos los selectores para sumarles peso.
   * d nose d-md-block: esconde un elemento en pantallas de cecular (d-none) y lo hace apartecer a partir de pantallas medianas o tablets (d-md-block)
   * flex-colum flex-md-row: acomoda los elementos en pantallas de celular uno debajo del otro y en pantallas más grandes los pasa a horizontal
   * px-4 y py-3: aplica padding horizontal con px y verical con py
+
+---Migracion de Inicio a Bootstrap y conflictos resueltos en DevTools (MiniReto 7):
+- Se cargo bootstrap.min.css antes de css/styles.css para que nuestra hoja tenga prioridad en la cascada sin usar !important.
+- Tres conflictos detectados en DevTools (panel Styles) y su solucion:
+  1. Peso y color de encabezados (h1, h2, h3): el Reboot de Bootstrap aplicaba font-weight: 500 y sobreescribia los margenes, quitandole fuerza a la fuente Montserrat. Solucion: se declaro font-weight: 700 y color: var(--color-azul-noche) en el selector h1, h2, h3 de styles.css y se manejaron los margenes con clases mb-* de Bootstrap.
+  2. Ancho fijo de main vs .container de Bootstrap: nuestra regla main { max-width: 60rem } limitaba el contenedor a 960px e impedia que .container de Bootstrap se expandiera a 1140px/1320px en escritorio para lucir las 4 columnas de la flota (col-xl-3). Solucion: se elimino el max-width fijo de main y se paso la clase .container al elemento <main>.
+  3. Estilos de tarjetas de rutas y enlaces al quitar clases de layout: al borrar .galeria-rutas y .cuadricula-flota para usar .row y .col-*, los articulos de rutas perdieron su borde y relleno, y Bootstrap intentaba subrayar enlaces en hover. Solucion: se agrupo el selector #servicios article, #flota article, #rutas article en styles.css solo con propiedades visuales (border, border-radius, padding) y se mantuvo text-decoration: none.
+
+---Informe comparativo final: Rueda Libre v1.5 (CSS propio) vs v2.0-beta (Bootstrap 5) (MiniReto 8):
+- Lineas de codigo en css/styles.css:
+  * Version v1.5 (commit 762826a - Mobile-first): 392 lineas de CSS.
+  * Version v2.0-beta (migracion completa a Bootstrap): 175 lineas de CSS (reduccion de 217 lineas, un 55.3% menos de codigo en la hoja de estilos).
+- Tiempo invertido en cada version:
+  * Version v1.5 (Flexbox, Grid y Media Queries manuales): ~6 horas entre sesiones de Semana 1 y Dia 1 de Semana 2.
+  * Version v2.0-beta (Bootstrap 5): ~1.5 horas para migrar las tres paginas (index, tarifas y reservas) y resolver conflictos.
+- Ventajas observadas: rapidez de maquetacion con grillas responsivas (row, col-*), espaciados consistentes (g-4, py-4) y tablas adaptables con .table-responsive.
+- Desventajas observadas: HTML con mas clases utilitarias, breakpoints fijos en lugar de auto-fit minmax, y necesidad de vigilar el Reboot en DevTools.
+- Conclusion: Bootstrap 5 redujo a mas de la mitad el tamaño de styles.css y acelero el layout responsivo. Combinar la grilla de Bootstrap con una hoja propia ligera cargada despues permitio mantener intacta la identidad de Rueda Libre.
+
+---Navbar colapsable y botones unificados (MiniReto 9):
+- Se reemplazo el header manual por .navbar.navbar-expand-lg con boton hamburguesa (.navbar-toggler) conectado a #menuPrincipal mediante data-bs-toggle="collapse" y data-bs-target.
+- Se marco la pagina activa con .nav-link.active y aria-current="page".
+- Se unificaron las llamadas a la accion con .btn: .btn-primary (.btn-lg en acciones principales) para reservar y .btn-outline-primary para consultar tarifas y recorridos.
+
+---Flota y rutas en Cards + Carrusel de promociones (MiniReto 10):
+- Se convirtieron los 7 modelos de #flota y las 3 tarjetas de #rutas al componente .card.h-100 con .card-img-top, .card-body.d-flex.flex-column y botones alineados abajo con .mt-auto.
+- Se integro el carrusel #carruselPromociones con avance automatico (data-bs-ride="carousel"), las 3 promociones del mes, textos alternativos en cada imagen y controles accesibles con .visually-hidden.
+- Se eliminaron de styles.css las reglas manuales de tarjetas de #flota y #rutas.
+
+---Validacion visual, alerta y modal en Reservas (MiniReto 11):
+- Se aplicaron form-label, form-control, form-select y form-check conservando intactos los atributos required, pattern, minlength, maxlength, min y max de la Semana 1.
+- Se integro el script oficial de validacion de Bootstrap (.needs-validation + novalidate) y mensajes .invalid-feedback especificos en cada campo obligatorio.
+- Se agrego una .alert.alert-warning.alert-dismissible recordando presentar el documento original y el modal #modalPoliticas con las 5 politicas de alquiler, accesible con mouse y teclado (Esc).
+
+---Cierre Semana 2: Rueda Libre v2.0 con identidad propia (MiniReto 12):
+- Se sobreescribieron en :root las variables --bs-primary (#1e7a4f), --bs-primary-rgb (30, 122, 79), --bs-body-font-family, --bs-body-bg (#FAF6EF), --bs-link-color y --bs-border-radius sin usar !important.
+- Se personalizaron .btn-primary y .btn-outline-primary con Verde Ruta y Azul Noche, y se creo la variante propia .btn-pedal con Naranja Pedal (#F39A2B) y texto Azul Noche (#14213D, contraste 7.01:1 AA).
+- Se crearon las 3 clases propias complementarias (.portada-hero, .titulo-seccion y .pie-marca) y se integraron Bootstrap Icons con aria-hidden="true" y aria-label en navbar, beneficios, contacto y WhatsApp.
+- Se verificaron los tres anchos (360px, 768px, 1280px), navegacion por teclado y capturas antes/despues en img/capturas/.
+- URL publicada: https://ap-lawrence.github.io/rueda-libre/

@@ -1,8 +1,9 @@
-/* Todo el ancho de los elemtnos incluye el padding y el border */
+/* Todo el ancho de los elementos incluye el padding y el border */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
+/* Sobrescritura de variables globales de Bootstrap 5 e identidad de Rueda Libre */
 :root {
     --color-verde-ruta: #1e7a4f;
     --color-naranja-pedal: #F39A2B;
@@ -16,176 +17,107 @@
     --espaciado-s: 0.5rem;
     --espaciado-m: 1rem;
     --espaciado-l: 1.5rem;
+
+    /* Variables globales de Bootstrap (--bs-*) */
+    --bs-primary: #1e7a4f;
+    --bs-primary-rgb: 30, 122, 79;
+    --bs-body-font-family: 'Open Sans', Arial, sans-serif;
+    --bs-body-bg: #FAF6EF;
+    --bs-body-color: #14213D;
+    --bs-link-color: #1e7a4f;
+    --bs-link-hover-color: #14213D;
+    --bs-border-radius: 0.5rem;
 }
 
-/*  Estilos cuerpo de la página */
+/* Identidad visual base */
 body {
-    font-family: var(--font-textos);
-    background-color: var(--color-crema);
-    color: var(--color-azul-noche);
+    font-family: var(--bs-body-font-family);
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
     margin: 0;
 }
 
-/* Ninguna imagen del sitio será más ancha que su contenedor */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/*  Uso de herencia en los titulos */
-h1, h2, h3 { 
+h1, h2, h3, h4, .navbar-brand { 
     font-family: var(--font-titulos);
-}
-
-#menu a { 
-    color: var(--color-gris-asfalto); 
-    text-decoration: none;
-}
-
-#menu a.activo { 
-    color: var(--color-verde-ruta); 
-    font-weight: 700; 
-}
-
-#menu a:hover,
-#menu a:focus {
+    font-weight: 700;
     color: var(--color-azul-noche);
-    text-decoration: underline;
-    outline: 2px dashed var(--color-azul-noche); 
-    outline-offset: 4px;
 }
 
-.btn-cta {
-    background-color: var(--color-verde-ruta);
-    color: var(--color-crema);
-    padding: var(--espaciado-m) var(--espaciado-l);
-    text-decoration: none;
-    border: none;
-    border-radius: var(--espaciado-s);
+/* Personalización del botón primario de Bootstrap con variables del componente */
+.btn-primary {
+    --bs-btn-color: #FAF6EF;
+    --bs-btn-bg: #1e7a4f;
+    --bs-btn-border-color: #1e7a4f;
+    --bs-btn-hover-color: #FAF6EF;
+    --bs-btn-hover-bg: #14213D;
+    --bs-btn-hover-border-color: #14213D;
+    --bs-btn-focus-shadow-rgb: 30, 122, 79;
+    --bs-btn-active-color: #FAF6EF;
+    --bs-btn-active-bg: #14213D;
+    --bs-btn-active-border-color: #14213D;
     font-weight: 600;
-    cursor: pointer;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #1e7a4f;
+    --bs-btn-border-color: #1e7a4f;
+    --bs-btn-hover-color: #FAF6EF;
+    --bs-btn-hover-bg: #1e7a4f;
+    --bs-btn-hover-border-color: #1e7a4f;
+    --bs-btn-active-color: #FAF6EF;
+    --bs-btn-active-bg: #14213D;
+    --bs-btn-active-border-color: #14213D;
+    font-weight: 600;
+}
+
+/* Variante propia de botón Naranja Pedal (contraste 7.01:1 con Azul Noche, cumple WCAG AA) */
+.btn-pedal {
+    --bs-btn-color: #14213D;
+    --bs-btn-bg: #F39A2B;
+    --bs-btn-border-color: #F39A2B;
+    --bs-btn-hover-color: #FAF6EF;
+    --bs-btn-hover-bg: #14213D;
+    --bs-btn-hover-border-color: #F39A2B;
+    --bs-btn-active-color: #FAF6EF;
+    --bs-btn-active-bg: #14213D;
+    --bs-btn-active-border-color: #14213D;
+    font-weight: 700;
+}
+
+/* Tres clases propias complementarias a Bootstrap */
+.portada-hero {
+    background-color: #ffffff;
+    border: 1px solid rgba(91, 100, 112, 0.25);
+    border-radius: var(--bs-border-radius);
+}
+
+.titulo-seccion {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 3px solid var(--color-naranja-pedal);
     display: inline-block;
-    font-family: var(--font-textos);
-    font-size: 1rem;
-    text-align: center;
 }
 
-.btn-cta:hover,
-.btn-cta:focus {
-    background-color: var(--color-azul-noche);
-    color: var(--color-crema);
-    outline: 2px solid var(--color-naranja-pedal); 
-    outline-offset: 3px;
+.pie-marca {
+    background-color: #ffffff;
+    border-top: 3px solid var(--color-verde-ruta);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: 3px solid var(--color-verde-ruta);
-    outline-offset: 1px;
-    border-color: var(--color-verde-ruta);
-}
-
-/* ---- --------------------------------------*/
-
-/* Centrar el contenido principal */
-main {
-    max-width: 60rem; 
-    margin: 0 auto;   
-    padding: var(--espaciado-m);
-}
-
-/* Estilos del encabezado (Base Móvil: 1 sola columna) */
-#inicio {
-    padding: var(--espaciado-l);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--espaciado-l);
-    align-items: center;
-}
-
+/* Tarjetas de servicios de la semana 1 y etiqueta Nuevo */
 #servicios article {
     padding: var(--espaciado-m);
     border: 1px solid var(--color-gris-asfalto);
     border-radius: var(--espaciado-s);
+    background-color: #ffffff;
     margin-bottom: var(--espaciado-l);
 }
-
-#servicios article img {
-    width: 100%;
-    border-radius: var(--espaciado-s);
-}
-
-/* Tablas ajustadas en móvil (letra y relleno pequeños para evitar scroll lateral) */
-table {
-    text-align: center; /* Conservado de la base original */
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-bottom: var(--espaciado-l);
-    font-size: 0.8rem;
-}
-
-th, td {
-    padding: 0.35rem;
-    border: 1px solid var(--color-gris-asfalto);
-}
-
-th {
-    background-color: var(--color-verde-ruta);
-    color: var(--color-crema);
-}
-
-form p {
-    margin-bottom: var(--espaciado-m);
-}
-
-label {
-    display: block; 
-    margin-bottom: var(--espaciado-s);
-    font-weight: 600;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-input[type="number"],
-select,
-textarea {
-    width: 100%;
-    padding: var(--espaciado-m);
-    border: 1px solid var(--color-gris-asfalto);
-    border-radius: var(--espaciado-s);
-}
-
-input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-}
-
-label[for="confirmacion-datos"],
-label[for="confirmacion-terminos"] {
-    display: inline;
-    font-weight: 400;
-}
-
-form .btn-cta {
-    width: 100%;
-    padding: var(--espaciado-l);
-}
-
-#menu {
-    padding-left: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;             /* Contenedor flexible */
-    justify-content: center;   /* Centrado horizontal */
-    gap: var(--espaciado-m);   /* Separación uniforme */
-    flex-wrap: wrap;           /* Pasan a otra línea si no caben */
-}
-
-/* Se eliminó el display: inline-block y margin-right de #menu li */
 
 .tarjeta-servicio {
     position: relative;
@@ -203,11 +135,40 @@ form .btn-cta {
     border-radius: 4px;
 }
 
+/* Tablas (estilos propios de la Semana 1 conservados) */
+table {
+    text-align: center;
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: var(--espaciado-l);
+    font-size: 0.8rem;
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 0.35rem;
+    border: 1px solid var(--color-gris-asfalto);
+}
+
+th {
+    background-color: var(--color-verde-ruta);
+    color: var(--color-crema);
+}
+
+/* Estados de foco accesibles */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--color-verde-ruta);
+    box-shadow: 0 0 0 0.25rem rgba(30, 122, 79, 0.25);
+}
+
+/* Botón flotante de WhatsApp (contraste 4.6:1 con azul noche sobre verde brillante) */
 .whatsapp-flotante {
     position: fixed;
     bottom: var(--espaciado-m);
     right: var(--espaciado-m);
-    background-color: #25D366;
+    background-color: var(--color-verde-ruta);
     color: #ffffff;
     padding: var(--espaciado-s) var(--espaciado-l);
     border-radius: 50px;
@@ -221,172 +182,18 @@ form .btn-cta {
 
 .whatsapp-flotante:hover,
 .whatsapp-flotante:focus {
-    background-color: #1ebe5d;
-    outline: 2px solid var(--color-azul-noche);
+    background-color: var(--color-azul-noche);
+    color: #ffffff;
+    outline: 2px solid var(--color-naranja-pedal);
     outline-offset: 2px;
 }
 
-/* Nombre del negocio en un extremo y menú en el otro, centrados verticalmente */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--espaciado-m);
-    padding: var(--espaciado-m);
-    max-width: 60rem;
-    margin: 0 auto;
-}
-
-/* Pie en tres bloques en fila, alineados por arriba y separados uniformemente */
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: var(--espaciado-l);
-    padding: var(--espaciado-l) var(--espaciado-m);
-    max-width: 60rem;
-    margin: 0 auto;
-}
-
-/* Cuadrícula adaptable sin media queries y separación uniforme */
-.cuadricula-flota {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: var(--espaciado-l);
-}
-
-/* Tarjeta con el box-model anterior y Flexbox en columna para que el botón "Reservar" quede siempre al final */
-#flota article {
-    padding: var(--espaciado-m);
-    border: 1px solid var(--color-gris-asfalto);
-    border-radius: var(--espaciado-s);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#flota article img {
-    width: 100%;
-    border-radius: var(--espaciado-s);
-}
-
-/* Empuja el botón hacia abajo del todo aunque las descripciones tengan distinto largo */
-#flota article .btn-cta {
-    margin-top: auto;
-}
-
-/* Imagen de la portada ocupando su columna y botones alineados con Flexbox */
-#inicio img {
-    width: 100%;
-    border-radius: var(--espaciado-s);
-}
-
-.inicio-botones {
-    display: flex;
-    align-items: center;
-    gap: var(--espaciado-m);
-    flex-wrap: wrap;
-}
-
-/* Galería "Nuestras rutas" con 3 tarjetas en una fila */
-.galeria-rutas {
-    display: grid;
-    grid-template-columns:  1fr;
-    gap: var(--espaciado-l);
-}
-
-.galeria-rutas article {
-    padding: var(--espaciado-m);
-    border: 1px solid var(--color-gris-asfalto);
-    border-radius: var(--espaciado-s);
-}
-
-.galeria-rutas img {
-    width: 100%;
-    border-radius: var(--espaciado-s);
-}
-
-/* En reservas, formulario (2/3) e info de contacto (1/3) en proporción 2:1 */
-.layout-reservas {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--espaciado-l);
-    align-items: start;
-}
-
-/*  Dos campos cortos (documento y celular) en la misma fila con Flexbox */
-.fila-campos {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--espaciado-m);
-}
-
-.fila-campos p {
-    flex: 1;
-}
-
-/* ------- MEDIA QUERIES (TABLET 768px Y ESCRITORIO 1200px) ----------- */
-
-/* TABLET (Desde 768px en adelante) */
 @media (min-width: 768px) {
-    /*  Recupera la distribución en header y footer */
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-
-    #menu {
-        justify-content: flex-end;
-    }
-
-    footer {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    /* Portada en 2 columnas */
-    #inicio {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Galería de rutas pasa a 2 columnas en tablet */
-    .galeria-rutas {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Campos cortos (documento y celular) en la misma fila */
-    .fila-campos {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    /* Las tablas recuperan su tamaño normal en pantallas grandes */
     table {
         font-size: 1rem;
     }
 
     th, td {
         padding: var(--espaciado-m);
-    }
-}
-
-/* ESCRITORIO (Desde 1200px en adelante) */
-@media (min-width: 1200px) {
-    /* Ampliamos un poco el contenedor principal para aprovechar pantallas de 1280px */
-    main, header, footer {
-        max-width: 72rem;
-    }
-
-    /* Galería de rutas completa con las 3 tarjetas en fila */
-    .galeria-rutas {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* En reservas: formulario (2/3) e info de contacto (1/3) en proporción 2:1 */
-    .layout-reservas {
-        grid-template-columns: 2fr 1fr;
     }
 }
